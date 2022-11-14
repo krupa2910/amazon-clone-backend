@@ -12,7 +12,12 @@ import cartRouter from './router/cartRouter';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+    optionSuccessStatus: 200
+  }
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use('/api/user', authRouter);
