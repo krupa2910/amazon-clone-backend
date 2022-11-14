@@ -19,7 +19,9 @@ const corsOptions = {
   }
 app.use(cors(corsOptions));
 app.use(express.json());
-
+app.get('/', (req,res)=>{
+    res.send("Hello world")
+})
 app.use('/api/user', authRouter);
 app.use('/api/products',productRouter)
 app.use('/api/addtocart',cartRouter)
